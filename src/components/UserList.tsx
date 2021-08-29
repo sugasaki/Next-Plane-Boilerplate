@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import styles from './UserList.module.css'
+import { timeout } from '../modules/util'
 
 const endPoint = 'https://jsonplaceholder.typicode.com/'
 axios.defaults.baseURL = endPoint
@@ -8,27 +9,28 @@ axios.defaults.baseURL = endPoint
 export const UserList = () => {
   const [users, setUsers] = useState<[]>()
   const [isProgress, setIsProgress] = useState<boolean>(false)
+  const [error, setError] = useState()
 
   /**
    * User情報のロード
    */
   const getUsers = async () => {
     setIsProgress(true)
-    // Make a request for a user with a given ID
+
     await axios
       .get('/users')
-      .then(function (response) {
+      .then(async (response) => {
         // handle success
-        console.log(response)
+        await timeout(500)
         setUsers(response.data)
       })
-      .catch(function (error) {
+      .catch(async (error) => {
         // handle error
-        console.log(error)
+        setError(error)
       })
-      .then(function () {
-        // always executed
-      })
+    // .then(function () {
+    //   // always executed
+    // })
 
     setIsProgress(false)
   }
@@ -44,6 +46,7 @@ export const UserList = () => {
 
         <div className={styles.box}>
           {isProgress && <div>...Loading</div>}
+          {error && <div>{JSON.stringify(error)}</div>}
           {users &&
             users.map((user) => (
               <>
@@ -56,7 +59,6 @@ export const UserList = () => {
               </>
             ))}
         </div>
-
         {/* {JSON.stringify(users)} */}
       </div>
     </>
