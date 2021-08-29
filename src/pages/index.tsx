@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import React from 'react'
 import styles from '../styles/Home.module.css'
+import { UserList } from '../components/UserList'
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +20,10 @@ const Home: NextPage = () => {
 
         <p className={styles.description}>
           Get started by editing <code className={styles.code}>pages/index.js</code>
+        </p>
+
+        <p className={styles.grid}>
+          <UserList />
         </p>
       </main>
 
