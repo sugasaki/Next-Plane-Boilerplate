@@ -7,13 +7,15 @@ axios.defaults.baseURL = endPoint
 
 export const UserList = () => {
   const [users, setUsers] = useState<[]>()
+  const [isProgress, setIsProgress] = useState<boolean>(false)
 
   /**
    * User情報のロード
    */
-  const getUsers = () => {
+  const getUsers = async () => {
+    setIsProgress(true)
     // Make a request for a user with a given ID
-    axios
+    await axios
       .get('/users')
       .then(function (response) {
         // handle success
@@ -27,6 +29,8 @@ export const UserList = () => {
       .then(function () {
         // always executed
       })
+
+    setIsProgress(false)
   }
 
   return (
@@ -39,6 +43,7 @@ export const UserList = () => {
         </div>
 
         <div className={styles.box}>
+          {isProgress && <div>...Loading</div>}
           {users &&
             users.map((user) => (
               <>
