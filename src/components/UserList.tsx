@@ -43,7 +43,10 @@ export const UserList = () => {
             users.map((user) => (
               <>
                 <div className={styles.user}>
+                  <div>{user.id}</div>
+                  <div>{user.username}</div>
                   <div>{user.name}</div>
+                  <div>{user.email}</div>
                 </div>
               </>
             ))}
