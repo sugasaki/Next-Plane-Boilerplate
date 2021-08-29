@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
-    "lint:fix": "eslint --fix . --ext .ts,.js,.tsx,.jsx"
+    "lint:fix": "eslint --fix . --ext .ts,.js,.tsx,.jsx",
+    "buil-dexport": "next build && next export"
   },
   "dependencies": {
     "next": "11.1.0",
