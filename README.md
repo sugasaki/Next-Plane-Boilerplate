@@ -110,3 +110,13 @@ add `.vscode/settings.json`
 
 
 
+# Jest
+
+```
+yarn -D add @types/jest babel-jest jest jest-watch-typeahead ts-jest
+```
+
+
+
+
+

@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
     "lint:fix": "eslint --fix . --ext .ts,.js,.tsx,.jsx",
-    "buil-dexport": "next build && next export"
+    "buil-dexport": "next build && next export",
+    "test": "jest",
+    "test-all": "yarn lint && yarn type-check && yarn test"
   },
   "dependencies": {
     "next": "11.1.0",
@@ -18,10 +20,12 @@
   "devDependencies": {
     "@types/eslint": "^7.28.0",
     "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/jest": "^27.0.1",
     "@types/prettier": "^2.3.2",
     "@types/react": "17.0.19",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
+    "babel-jest": "^27.1.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "11.1.0",
     "eslint-config-prettier": "^8.3.0",
@@ -29,8 +33,11 @@
     "eslint-plugin-react": "^7.25.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.2",
+    "jest": "^27.1.0",
+    "jest-watch-typeahead": "^0.6.4",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
+    "ts-jest": "^27.0.5",
     "typescript": "4.4.2"
   },
   "husky": {
